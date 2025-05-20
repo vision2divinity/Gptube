@@ -1,12 +1,14 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { YoutubeTranscript, TranscriptResponse } from 'youtube-transcript'
-import { OpenAI } from 'langchain/llms/openai'
-import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
-import { PineconeStore } from 'langchain/vectorstores/pinecone'
-import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
-import { pinecone } from '@/utils/pinecone-client'
-import { PINECONE_INDEX_NAME } from '@/config/pinecone'
-import { OPENAI_API_KEY } from '@/config/openAi'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { YoutubeTranscript, TranscriptResponse } from 'youtube-transcript';
+import { OpenAI } from 'langchain/llms/openai';
+import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
+import { PineconeStore } from 'langchain/vectorstores/pinecone';
+import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
+import { pinecone } from '@/utils/pinecone-client';
+import { PINECONE_INDEX_NAME } from '@/config/pinecone';
+import { OPENAI_API_KEY } from '@/config/openAi';
+//import { PineconeStore } from '../../../node_modules/langchain/vectorstores/pinecone';
+// ... rest of the code remains the same ...
 
 const storeTranscript = async (text: string): Promise<PineconeStore> => {
   const textSplitter = new RecursiveCharacterTextSplitter({
